@@ -12,7 +12,6 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-from __future__ import division
 
 from ctypes import *
 from ctypes.util import find_library
@@ -445,7 +444,7 @@ class FUSELL(object):
             reply_err
         """
         if ino == 1:
-            attr = {'st_ino': 1, 'st_mode': S_IFDIR | 0755, 'st_nlink': 2}
+            attr = {'st_ino': 1, 'st_mode': S_IFDIR | 0o755, 'st_nlink': 2}
             self.reply_attr(req, attr, 1.0)
         else:
             self.reply_err(req, ENOENT)        
